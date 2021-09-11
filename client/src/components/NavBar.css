@@ -1,0 +1,9 @@
+.main-navbar {
+    display:grid;
+    grid-template-columns: 33% 33% 33%;
+    list-style-type: none;
+    margin: 5px;
+    padding: 5px;
+    overflow: hidden;
+    background-color: rgb(245, 238, 238);
+  }
