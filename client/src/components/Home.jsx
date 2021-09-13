@@ -4,6 +4,7 @@ import Pokemon from './Pokemon'
 function Home() {
     return (
         <div>
+            <br />
             <h1>POKEMÓN</h1>
                 <div>
                     <Pokemon />

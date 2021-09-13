@@ -14,7 +14,7 @@ function App() {
         <Route  path="/" component={NavBar}></Route>
         <Route exact path="/" component={Landing}></Route>
         <Route exact path="/home" component={Home}></Route>
-        <Route exact path="/detalle" component={Detalle}></Route>
+        <Route exact path="/detalle/:id" render={({ match }) => <Detalle id={match.params.id}/>} ></Route>
         <Route exact path="/crear" component={Crear}></Route>
       </Router>
     </div>
@@ -22,3 +22,5 @@ function App() {
 }
 
 export default App;
+
+//component={Detalle}

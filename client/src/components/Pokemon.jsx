@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPokemones } from '../actions';
 import './Pokemon.css';
+import { NavLink } from 'react-router-dom';
+
 
 
 function Pokemon() {
@@ -21,7 +23,9 @@ useEffect(()=>{
                 return(
                     <div key={i}>
                         <h3>{e.name}</h3>
-                        <img src={e.image} alt={`imagen ${e.name}`} />
+                        <NavLink exact to={`/detalle/${e.id}`}>
+                            <img src={e.image} alt={`imagen ${e.name}`} />
+                        </NavLink>
                     </div>
                 )
             })}

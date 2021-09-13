@@ -1,6 +1,8 @@
 import axios from 'axios';
 
 export const GET_POKEMONES = 'GET_POKEMONES';
+export const GET_POKEMONES_BY_ID = 'GET_POKEMONES_BY_ID';
+export const QUIT_POKEMONES_BY_ID = 'QUIT_POKEMONES_BY_ID';
 
 
 export const getPokemones = (payload) => {
@@ -11,4 +13,26 @@ export const getPokemones = (payload) => {
             payload: response.data
         }))
     }
+}
+
+
+export const getPokemonesById = (id) => {
+    return function (dispatch) {
+        axios.get(`http://localhost:3001/pokemons/one/${id}`)
+        .then(response => dispatch(
+            {
+                type: GET_POKEMONES_BY_ID,
+                payload: response.data
+            }
+        ))
+    }
+
+}
+
+
+export function quitPokemonesById(){
+    return {
+                type: QUIT_POKEMONES_BY_ID, 
+                payload:{}
+             }    
 }

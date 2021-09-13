@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     hp: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
     strenght: {
@@ -39,5 +39,13 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    defense: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    // type: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // },
   });
 };
