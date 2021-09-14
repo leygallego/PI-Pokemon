@@ -23,6 +23,16 @@ async function getTypes(req, res, next) {
     
 }
 
+async function addTypes(req, res, next) {
+    const { name } = req.body;
+
+    const newType = Type.create({
+        name
+    })
+    res.send(newType)
+    
+}
+
 
 // var pokemonBase = [];
 // for (let i = 1; i <= 40; i++) {
@@ -41,5 +51,6 @@ async function getTypes(req, res, next) {
 // res.send(resultado);
 
 module.exports = {
-    getTypes
+    getTypes,
+    addTypes
 }

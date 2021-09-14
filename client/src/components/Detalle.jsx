@@ -23,6 +23,7 @@ function Detalle() {
         <div>
             {pokedetalle.name?
                 <div>
+                    <br />
                     <h1>Detalle de {pokedetalle.name}</h1>
                     <img src={pokedetalle.image} alt={`imagen de ${pokedetalle.image}`} />
                     <p>Nombre: {pokedetalle.name}</p>
@@ -32,6 +33,8 @@ function Detalle() {
                     <p>Velocidad: {pokedetalle.speed}</p>
                     <p>Peso: {pokedetalle.weight}</p>
                     <p>Altura: {pokedetalle.height}</p>
+                    {/* <p>Tipo: {pokedetalle.type}</p> */}
+
 
 
 
