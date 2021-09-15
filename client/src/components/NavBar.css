@@ -5,9 +5,17 @@
     margin: 5px;
     padding: 5px;
     overflow: hidden;
-    background-color: rgb(245, 238, 238);
+    /* background-color: rgb(245, 238, 238); */
+    background: #FFF;
     position:fixed; 
     top:0;
-    width: 50%;
-    
+    width: 100%;
+
   }
+
+
+  /* background: #000000;
+	color: #FFF;
+	height: 49px;
+	padding-left: 18px;
+	border-radius: 10px; */

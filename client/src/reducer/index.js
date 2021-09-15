@@ -1,4 +1,4 @@
-import { GET_POKEMONES, GET_POKEMONES_BY_ID, QUIT_POKEMONES_BY_ID } from "../actions";
+import { CREATE_POKEMON, GET_POKEMONES, GET_POKEMONES_BY_ID, QUIT_POKEMONES_BY_ID } from "../actions";
 
 
 
@@ -25,7 +25,12 @@ export default function rootReducer(state = initialState, action){
             return {
                 ...state,
                 pokemon: action.payload
-            }    
+            } 
+        case CREATE_POKEMON:
+            return{
+                ...state,
+                pokemones: [...state.pokemones, action.payload]
+            }       
         default: return state
     }
 }

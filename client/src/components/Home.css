@@ -1,0 +1,12 @@
+.main-home {
+    display: flex;
+    flex-direction: row;
+}
+
+.area-busqueda {
+    width: 30%;
+}
+
+.area-pokemon {
+    width: 70%;
+}
