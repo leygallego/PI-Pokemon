@@ -19,13 +19,15 @@ useEffect(()=>{
     return (
         <div className="main-card">
             {selector.map((e, i)=>{
-                // console.log(e);
+                //  console.log(e);
                 return(
                     <div key={i}>
-                        <h3>{e.name}</h3>
                         <NavLink exact to={`/detalle/${e.id}`}>
                             <img src={e.image} alt={`imagen ${e.name}`} />
                         </NavLink>
+                        <h2>Nombre: {e.name}</h2>
+                        <h3>Tipo: {e.type}</h3>
+                        
                     </div>
                 )
             })}

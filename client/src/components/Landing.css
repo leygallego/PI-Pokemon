@@ -1,0 +1,25 @@
+.main-landing{
+	background-image: url('../images/pokemon.jpeg');  
+	background-size: cover;
+	background-position: center;
+    background-color: black;
+	padding: 15em;
+
+}
+
+.myButton{
+    background: url('../images/pokeball1.png') no-repeat;
+    cursor:pointer;
+    border:none;
+    width:550px;
+    height:550px;
+}
+
+.myButton:hover {
+    background: url('../images/pokeball.png') no-repeat;
+
+}
+
+.myButton:active {
+    background: url('../images/pokeball.png') no-repeat;
+}

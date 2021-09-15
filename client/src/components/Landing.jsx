@@ -1,15 +1,17 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import './Landing.css'
 
 function Landing() {
     return (
-        <div>
+        <div className="main-landing">
             <NavLink exact to={"/home"}>
-            <button>
-                <h1>
-                    Ingresa al extraño mundo pokemón
-                </h1>
+                <div className="main-button">
+                <button className="myButton">
+               
             </button>
+                </div>
+            
             </NavLink>
             
         </div>
