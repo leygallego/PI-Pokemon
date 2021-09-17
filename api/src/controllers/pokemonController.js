@@ -1,4 +1,4 @@
-const { Pokemon, Type, Op } = require('../db');
+const { Pokemons, Types, Op } = require('../db');
 const axios = require('axios');
 const { v4: uuidv4 } = require("uuid");
 var Sequelize = require("sequelize");
@@ -26,10 +26,10 @@ async function getPokemons(req, res, next) {
                 height: e.data.height,
                 weight: e.data.weight,
                 image: e.data.sprites.other["official-artwork"].front_default,
-                type: e.data.types[0].type.name,
+                types: e.data.types[0].type.name,
             }
         })
-        Pokemon.findAll({include:{model:Type}})
+        Pokemons.findAll({include:{model:Types}})
         .then(dbPokemon => {
             dbPokemon = dbPokemon.concat(resultado);
 
@@ -55,12 +55,12 @@ async function getPokemons(req, res, next) {
 
             if(isNaN(id)){
                 // pkInfo = await Pokemon.findByPk(id)
-                pkInfo  = await Pokemon.findOne({
+                pkInfo  = await Pokemons.findOne({
                     where: {
                         id: id
                     },
                     include: {
-                        model: Type
+                        model: Types
                     }
                 })
             } else {
@@ -77,7 +77,7 @@ async function getPokemons(req, res, next) {
                 strenght: pkInfo.stats[3].base_stat,
                 speed: pkInfo.stats[5].base_stat,
                 defense: pkInfo.stats[2].base_stat,
-                type: pkInfo.types[0].type.name,
+                types: pkInfo.types[0].type.name,
 
                         }
             res.send(mostrarPk ? mostrarPk : "No existe el pokemon")
@@ -90,10 +90,10 @@ async function getPokemons(req, res, next) {
         //TODO: agregar funcionalidad que incluya los tipos
     async function addPokemon(req, res, next){
         try {
-            const {name, hp, strenght, defense, speed, height, weight, image, type} = req.body;
+            const {name, hp, strenght, defense, speed, height, weight, image, types} = req.body;
 
-            const newPokemon = Pokemon.create({name, hp, strenght, defense, speed, height, weight, image })
-            //await newPokemon.addType(type)
+            const newPokemon = await Pokemons.create({name, hp, strenght, defense, speed, height, weight, image});
+            await newPokemon.addTypes(types); // para mas de un tipo "Promise.All"
 
             res.send(newPokemon)
         } catch (error) {
@@ -109,7 +109,7 @@ async function getPokemons(req, res, next) {
             if (name) {
                 // name = `%${name}%`;
                 name = "%" + name + "%";
-                Pokemon.findAll({
+                Pokemons.findAll({
                     where:{
                         [Sequelize.Op.or]: [
                             {
@@ -125,7 +125,7 @@ async function getPokemons(req, res, next) {
                 })
                 .catch(next); 
             }
-            Pokemon.findAll()
+            Pokemons.findAll()
             .then(datos => {
                 datos.length > 0 ? res.json(datos)
                 :

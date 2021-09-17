@@ -33,7 +33,7 @@ function Detalle() {
                     <p>Velocidad: {pokedetalle.speed}</p>
                     <p>Peso: {pokedetalle.weight}</p>
                     <p>Altura: {pokedetalle.height}</p>
-                    {/* <p>Tipo: {pokedetalle.type}</p> */}
+                    {/* <p>Tipo: {pokedetalle.types.name}</p> */}  
 
 
 

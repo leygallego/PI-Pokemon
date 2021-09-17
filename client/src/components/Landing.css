@@ -9,6 +9,7 @@
 
 .myButton{
     background: url('../images/pokeball1.png') no-repeat;
+    opacity: 0.3;
     cursor:pointer;
     border:none;
     width:550px;
@@ -17,6 +18,7 @@
 
 .myButton:hover {
     background: url('../images/pokeball.png') no-repeat;
+    opacity: 1.0;
 
 }
 

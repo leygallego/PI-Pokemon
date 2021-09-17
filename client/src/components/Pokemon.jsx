@@ -26,7 +26,7 @@ useEffect(()=>{
                             <img src={e.image} alt={`imagen ${e.name}`} />
                         </NavLink>
                         <h2>Nombre: {e.name}</h2>
-                        <h3>Tipo: {e.type}</h3>
+                        {/* <h3>Tipo: {e.types}</h3> */}
                         
                     </div>
                 )

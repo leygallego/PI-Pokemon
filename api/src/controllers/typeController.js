@@ -1,4 +1,4 @@
-const { Type } = require("../db");
+const { Types } = require("../db");
 const axios = require('axios');
 
 async function getTypes(req, res, next) {
@@ -10,7 +10,7 @@ async function getTypes(req, res, next) {
     }
 
     let dbTypes = await Promise.all(
-        typeBase.map(e=> Type.findOrCreate({
+        typeBase.map(e=> Types.findOrCreate({
             where: {
                 name: e.data.types[0].type.name
             }
@@ -26,7 +26,7 @@ async function getTypes(req, res, next) {
 async function addTypes(req, res, next) {
     const { name } = req.body;
 
-    const newType = Type.create({
+    const newType = Types.create({
         name
     })
     res.send(newType)
