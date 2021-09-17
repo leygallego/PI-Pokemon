@@ -96,7 +96,7 @@ function Crear() {
                     })
                     }
                 </select>
-                <button className="myButton" type="submit" >Crear</button>
+                <button className="myButton-crear" type="submit" >Crear</button>
 
             </form>
 
