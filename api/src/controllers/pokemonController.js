@@ -87,7 +87,6 @@ async function getPokemons(req, res, next) {
         
     }
         //agregar pokemones 
-        //TODO: agregar funcionalidad que incluya los tipos
     async function addPokemon(req, res, next){
         try {
             const {name, hp, strenght, defense, speed, height, weight, image, types} = req.body;
@@ -131,7 +130,7 @@ async function getPokemons(req, res, next) {
                 :
                 axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
                 .then(async pokes => {
-                    console.log("Dato Global", pokes );
+                    // console.log("Dato Global", pokes );
                     return await Promise.all(
                         pokes.data.map(pk =>{
                             console.log("Dato Específico", pk);

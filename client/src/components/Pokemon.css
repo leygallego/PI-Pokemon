@@ -8,12 +8,22 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: black;
     color: white;
-    
+  }
 
+  img{
+    width: 150px; height: 150px;
 
   }
 
-  .card {
+  .back{
+    background-color: yellow;
+  }
+
+    .forward{
+    background-color: blue;
+  }
+
+  /* .imagenes-card {
     display: grid;
     grid-template-columns: 33% 33% 33%;
     gap: 1em;
@@ -24,12 +34,12 @@
     margin-top: 1%;
     margin-bottom: 1%;
     margin-right: 1%;
-    /* width: 25%;
-    height: 50%; */
+    width: 25%;
+    height: 50%;
     border-radius: 20px;
     background-color: black;
     color: white;
     font-size: 18px;
     text-align: center;
     
-  }
+  } */
