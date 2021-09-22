@@ -35,10 +35,6 @@ function Detalle() {
                     <p>Altura: {pokedetalle.height}</p>
                     {/* <p>Tipo: {pokedetalle.types.name}</p> */}  
 
-
-
-
-
                 </div> 
                 : "Cargando..."   
         }

@@ -3,10 +3,10 @@
     flex-direction: row;
 }
 
-.area-busqueda {
+/* .area-busqueda {
     width: 30%;
-}
+} */
 
 .area-pokemon {
-    width: 70%;
+    width: 100%;
 }

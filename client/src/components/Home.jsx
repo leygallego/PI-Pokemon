@@ -1,6 +1,6 @@
 import React from 'react'
 import Pokemon from './Pokemon'
-import Search from './Search'
+// import Search from './Search'
 import './Home.css'
 
 function Home() {
@@ -10,9 +10,9 @@ function Home() {
             <h1>POKEMÓN</h1>
                 <div className="main-home">
 
-                    <div className="area-busqueda">
+                    {/* <div className="area-busqueda">
                         <Search />    
-                    </div>
+                    </div> */}
 
                     <div className="area-pokemon">
                         <Pokemon />

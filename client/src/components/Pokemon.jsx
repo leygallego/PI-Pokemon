@@ -59,13 +59,15 @@ if (!pagination) {
 
     return (
         <div className="main-card">
+            
+        
             <div className="button-pagination">
                 <input className="back" type="button" value="<<<" onClick={handleBackwards} />
                 <input className="forward" type="button" value=">>>" onClick={handleForewards} />
             </div>
             
-
-            {paginado.map((e, i)=>{
+            <div className="container-pokemones">
+                {paginado.map((e, i)=>{
                 //  console.log(e);
                 return(
                     <div key={i} className="imagenes-card">
@@ -78,6 +80,8 @@ if (!pagination) {
                     </div>
                 )
             })}
+            </div>
+            
         </div>
     )
 }

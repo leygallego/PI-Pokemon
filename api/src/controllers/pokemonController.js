@@ -45,15 +45,11 @@ async function getPokemons(req, res, next) {
 }
 
 // Búsqueda de pokemones por ID (Obtener un solo pokemón)
-//TODO: Verificar por qué no está tomando el id de la base de datos
-
 async function getOnePokemon(req, res, next) {
 
     try {
-
         const { id } = req.params;
         let pkInfo;
-
         if (isNaN(id)) {
             pkInfo = await Pokemons.findOne({
                 where: {
@@ -65,7 +61,7 @@ async function getOnePokemon(req, res, next) {
             })
             res.send(pkInfo)
         } else {
-             pkInfo = (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data
+            pkInfo = (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data
             // console.log(resultado);
             pkInfo = {
                 name: pkInfo.name,
@@ -77,22 +73,15 @@ async function getOnePokemon(req, res, next) {
                 speed: pkInfo.stats[5].base_stat,
                 defense: pkInfo.stats[2].base_stat,
                 types: pkInfo.types[0].type.name,
-    
             }
-    
             res.send(pkInfo)
         }
-
     } catch (error) {
         next(error)
     }
-
-
-
-
-
-
 }
+
+
 //agregar pokemones 
 async function addPokemon(req, res, next) {
     try {

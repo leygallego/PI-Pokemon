@@ -18,10 +18,10 @@ function Search() {
 
 
     const [busqueda, setBusqueda] = useState();
-    const [tiposPk, setTipos] = useState(-1);
+    // const [tiposPk, setTipos] = useState(-1);
 
     const handleTypes = (e)=>{
-        const opcion = e.target.value
+        // const opcion = e.target.value
         // console.log("seleccionando",opcion);
     }
 
@@ -64,15 +64,7 @@ function Search() {
                     }
                 </div>
 
-                    <div>
-                        <h3>
-                            tipos
-                        </h3>
-                       
-                    </div>
-                    <div>
-                        <h1>prueba</h1>
-                    </div>
+                
         </div>
     )       
 }
