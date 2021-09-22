@@ -9,11 +9,12 @@ function Search() {
     const pk = useSelector(state => state.pokemones);
  const tipos = useSelector(state => state.types);
     // console.log("store tipos",tipos);
-    const dispatch = useDispatch();
+    
+    const dispatch = useDispatch(); // verificar que esté importado de react redux si lo voy a usar
 
     useEffect(()=>{
         dispatch(getAllTypes())
-    })
+    },[dispatch])
 
 
 
@@ -42,12 +43,15 @@ function Search() {
                     }
                 </select>
             </div> 
+        <div className="contenedor-input">
             <div className="search-input">
                 {/* <input type="button" value="A-Z" /> */}
                 <input type="text" placeholder="Busca Pokemón por nombre" onChange={(e)=>{handleOnChange(e)}}/>
                 {/* <input type="button" value="Z-A" /> */}
           </div>
-                <div>
+                
+            </div>
+            <div className="content-search">
                     {
                         pk ? pk.map(el =>{
                             if(el.name.includes(busqueda)){
@@ -63,6 +67,7 @@ function Search() {
                         }) : <div></div>
                     }
                 </div>
+            
 
                 
         </div>

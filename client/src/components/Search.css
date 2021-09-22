@@ -12,5 +12,19 @@
 
   .search-input{
     margin-left: 50px;
+    
 
   }
+
+  .search-select{
+    margin-right: 50px;
+  }
+
+  .content-search{
+    overflow: scroll;
+    width: 250px;
+    margin-left: 100px;
+  }
+  /* .contenedor-input{
+    overflow: visible;
+  } */
