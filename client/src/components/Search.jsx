@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getAllTypes } from '../actions';
 import './Search.css'
 
 function Search() {
 
     const pk = useSelector(state => state.pokemones);
+ const tipos = useSelector(state => state.types);
+    // console.log("store tipos",tipos);
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(getAllTypes())
+    })
+
+
 
     const [busqueda, setBusqueda] = useState();
+    const [tiposPk, setTipos] = useState(-1);
+
+    const handleTypes = (e)=>{
+        const opcion = e.target.value
+        // console.log("seleccionando",opcion);
+    }
 
     const handleOnChange = (e)=>{
         setBusqueda(e.target.value)
@@ -16,11 +32,14 @@ function Search() {
     return (
         <div className="main-search">
             <div className="search-select">
-                <select name="tipos" >
-                    <option value="normal">Normal</option>
-                    <option value="agua">Agua</option>
-                    <option value="fuego">Fuego</option>
-                    <option value="electrico">Eléctrico</option>
+                <select name="tipos" onClick={handleTypes} >
+                    <option value={-1}>Seleccione un tipo</option>
+                    {
+                        tipos.map((e, i) => {
+                            // console.log("tipos", e);
+                         return   <option key={"tipos" + i} value={i}>{e.name}</option>
+                        })
+                    }
                 </select>
             </div> 
             <div className="search-input">
@@ -44,6 +63,16 @@ function Search() {
                         }) : <div></div>
                     }
                 </div>
+
+                    <div>
+                        <h3>
+                            tipos
+                        </h3>
+                       
+                    </div>
+                    <div>
+                        <h1>prueba</h1>
+                    </div>
         </div>
     )       
 }

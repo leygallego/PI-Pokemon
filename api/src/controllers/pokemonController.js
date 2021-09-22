@@ -7,7 +7,7 @@ var Sequelize = require("sequelize");
 async function getPokemons(req, res, next) {
 
     try {
-    
+
         //Obteniendo los Pokemones
         var pokemonBase = [];
         for (let i = 1; i <= 40; i++) {
@@ -29,13 +29,13 @@ async function getPokemons(req, res, next) {
                 types: e.data.types[0].type.name,
             }
         })
-        Pokemons.findAll({include:{model:Types}})
-        .then(dbPokemon => {
-            dbPokemon = dbPokemon.concat(resultado);
+        Pokemons.findAll({ include: { model: Types } })
+            .then(dbPokemon => {
+                dbPokemon = dbPokemon.concat(resultado);
 
-            res.send(dbPokemon);
+                res.send(dbPokemon);
 
-        })
+            })
 
 
     } catch (error) {
@@ -47,28 +47,27 @@ async function getPokemons(req, res, next) {
 // Búsqueda de pokemones por ID (Obtener un solo pokemón)
 //TODO: Verificar por qué no está tomando el id de la base de datos
 
-    async function getOnePokemon(req, res, next) {
+async function getOnePokemon(req, res, next) {
 
-        try {
-            const { id } = req.params
-            let pkInfo; 
+    try {
 
-            if(isNaN(id)){
-                // pkInfo = await Pokemon.findByPk(id)
-                pkInfo  = await Pokemons.findOne({
-                    where: {
-                        id: id
-                    },
-                    include: {
-                        model: Types
-                    }
-                })
-            } else {
-                pkInfo = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-            }
+        const { id } = req.params;
+        let pkInfo;
 
-              pkInfo = pkInfo.data
-            let mostrarPk = {
+        if (isNaN(id)) {
+            pkInfo = await Pokemons.findOne({
+                where: {
+                    id: id
+                },
+                include: {
+                    model: Types
+                }
+            })
+            res.send(pkInfo)
+        } else {
+             pkInfo = (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data
+            // console.log(resultado);
+            pkInfo = {
                 name: pkInfo.name,
                 image: pkInfo.sprites.other["official-artwork"].front_default,
                 height: pkInfo.height,
@@ -78,75 +77,73 @@ async function getPokemons(req, res, next) {
                 speed: pkInfo.stats[5].base_stat,
                 defense: pkInfo.stats[2].base_stat,
                 types: pkInfo.types[0].type.name,
-
-                        }
-            res.send(mostrarPk ? mostrarPk : "No existe el pokemon")
-        } catch (error) {
-            
-        }
-        
-    }
-        //agregar pokemones 
-    async function addPokemon(req, res, next){
-        try {
-            const {name, hp, strenght, defense, speed, height, weight, image, types} = req.body;
-
-            const newPokemon = await Pokemons.create({name, hp, strenght, defense, speed, height, weight, image});
-            await newPokemon.addTypes(types); // para mas de un tipo "Promise.All"
-
-            res.send(newPokemon)
-        } catch (error) {
-            next(error)
-        }
-    }
-
-
-    async function searchPokemon(req, res, next){
-            
-        let { name } = req.query;
-           
-            if (name) {
-                // name = `%${name}%`;
-                name = "%" + name + "%";
-                Pokemons.findAll({
-                    where:{
-                        [Sequelize.Op.or]: [
-                            {
-                                name:{
-                                    [Sequelize.Op.iLike]: name,
-                                }
-                            }
-                        ]
-                    }
-                })
-                .then((pk)=>{
-                    res.json(pk);
-                })
-                .catch(next); 
+    
             }
-            Pokemons.findAll()
-            .then(datos => {
-                datos.length > 0 ? res.json(datos)
-                :
-                axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-                .then(async pokes => {
-                    // console.log("Dato Global", pokes );
-                    return await Promise.all(
-                        pokes.data.map(pk =>{
-                            console.log("Dato Específico", pk);
-                            return {
-                                name: pk.name,
-                                hp: pk.stats[0].base_stat
-                            }
-                        })
-                    ).then(respuesta =>{
-                        res.json(respuesta)
-                    })
-                })
-            }).catch(next)
+    
+            res.send(pkInfo)
+        }
 
-
+    } catch (error) {
+        next(error)
     }
+
+
+
+
+
+
+}
+//agregar pokemones 
+async function addPokemon(req, res, next) {
+    try {
+        const { name, hp, strenght, defense, speed, height, weight, image, types } = req.body;
+
+        const newPokemon = await Pokemons.create({ name, hp, strenght, defense, speed, height, weight, image });
+        await newPokemon.addTypes(types); // para mas de un tipo "Promise.All"
+
+        res.send(newPokemon)
+    } catch (error) {
+        next(error)
+    }
+}
+
+
+async function searchPokemon(req, res, next) {
+
+    try {
+        const { name } = req.query;
+        let result = [];
+        let dbPk = await Pokemons.findAll({
+            where: {
+                [Sequelize.Op.or]: [
+                    {
+                        name: {
+                            [Sequelize.Op.iLike]: `%${name}%`,
+                        }
+                    }
+                ]
+            }
+        })
+        // console.log("1 consulta", dbPk);
+        if (dbPk) result = result.concat(dbPk)
+        console.log("2 consulta", result);
+        await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+            .then((res) => {
+                result = result.concat(res.data)
+                // console.log("concatenado",result);
+                return res.json(result)
+            }).catch(() => {
+                return res.json(result)
+            })
+
+    } catch (error) {
+        next(error)
+    }
+
+
+
+
+}
 
 
 

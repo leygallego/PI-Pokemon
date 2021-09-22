@@ -1,11 +1,12 @@
-import { CREATE_POKEMON, GET_POKEMONES, GET_POKEMONES_BY_ID, QUIT_POKEMONES_BY_ID } from "../actions";
+import { CREATE_POKEMON, GET_ALL_TYPES, GET_POKEMONES, GET_POKEMONES_BY_ID, QUIT_POKEMONES_BY_ID } from "../actions";
 
 
 
 const initialState={
 
     pokemones: [],
-    pokemon:{}
+    pokemon:{},
+    types : []
 }
 
 
@@ -30,7 +31,12 @@ export default function rootReducer(state = initialState, action){
             return{
                 ...state,
                 pokemones: [...state.pokemones, action.payload]
-            }       
+            }
+        case GET_ALL_TYPES:
+            return{
+                ...state,
+                types: action.payload
+            }           
         default: return state
     }
 }

@@ -4,6 +4,7 @@ export const GET_POKEMONES = 'GET_POKEMONES';
 export const GET_POKEMONES_BY_ID = 'GET_POKEMONES_BY_ID';
 export const QUIT_POKEMONES_BY_ID = 'QUIT_POKEMONES_BY_ID';
 export const CREATE_POKEMON = 'CREATE_POKEMON';
+export const GET_ALL_TYPES = 'GET_ALL_TYPES';
 
 
 export const getPokemones = (payload) => {
@@ -50,4 +51,14 @@ export function createPokemon(payload){
         })
     }
 
+}
+
+export function getAllTypes(payload) {
+    return async dispatch => {
+        return  await axios.get("http://localhost:3001/types", payload)
+        .then(response => dispatch({
+            type: GET_ALL_TYPES,
+            payload: response.data
+        }))
+    }
 }

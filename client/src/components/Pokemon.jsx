@@ -6,10 +6,12 @@ import { NavLink } from 'react-router-dom';
 
 
 
+
 function Pokemon() {
 const selector = useSelector(state =>{
     return state.pokemones;
 })
+
 const dispatch = useDispatch();
 
 useEffect(()=>{
@@ -27,6 +29,8 @@ const pagination = () => {
     )
     // console.log(paginado);
 }
+
+
 
 const handleBackwards = () => {
 
