@@ -9,7 +9,7 @@ function Detalle() {
 
     const dispatch = useDispatch();
     const pokedetalle = useSelector(store=>{
-        console.log("Tienda", store.pokemon);
+        // console.log("Tienda", store.pokemon);
        return store.pokemon
     });
 
@@ -38,7 +38,7 @@ function Detalle() {
                     <p>Velocidad: {pokedetalle.speed}</p>
                     <p>Peso: {pokedetalle.weight}</p>
                     <p>Altura: {pokedetalle.height}</p>
-                    <p>Altura: {typeof pokedetalle.types === "object" ? <h3>Tipo: {pokedetalle.types[0].name}</h3> : <h3>Tipo: {pokedetalle.types}</h3>}</p>
+                    <div> {typeof pokedetalle.types === "object" ? <h3>Tipo: {pokedetalle.types[0].name}</h3> : <h3>Tipo: {pokedetalle.types}</h3>}</div>
 
                     {/* <p>Tipo: {pokedetalle.types.name}</p> */}  
                     
