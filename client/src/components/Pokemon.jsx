@@ -68,8 +68,7 @@ if (!pagination) {
             
             <div className="container-pokemones">
                 {paginado.map((e, i)=>{
-                //  console.log(e);
-                // console.log(e)
+               
                 if (typeof e.types === "object") {
                     // console.log("Soy un array con objetos");
                     return(

@@ -9,7 +9,7 @@ function Detalle() {
 
     const dispatch = useDispatch();
     const pokedetalle = useSelector(store=>{
-        // console.log("Tienda", store.pokemon);
+        console.log("Tienda", store.pokemon);
        return store.pokemon
     });
 
@@ -18,10 +18,15 @@ function Detalle() {
         return ()=>{dispatch(quitPokemonesById())}
     },[dispatch, id])
 
+
     return (
         
+        
+        
         <div>
-            {pokedetalle.name?
+            {
+        
+            pokedetalle.name?
                 <div>
                     <br />
                     <h1>Detalle de {pokedetalle.name}</h1>
@@ -33,7 +38,10 @@ function Detalle() {
                     <p>Velocidad: {pokedetalle.speed}</p>
                     <p>Peso: {pokedetalle.weight}</p>
                     <p>Altura: {pokedetalle.height}</p>
+                    <p>Altura: {typeof pokedetalle.types === "object" ? <h3>Tipo: {pokedetalle.types[0].name}</h3> : <h3>Tipo: {pokedetalle.types}</h3>}</p>
+
                     {/* <p>Tipo: {pokedetalle.types.name}</p> */}  
+                    
 
                 </div> 
                 : "Cargando..."   
