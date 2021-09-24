@@ -144,16 +144,3 @@ module.exports = {
 }
 
 
-// Promise.All(pokemonBase)
-        // .then((pokemon) => {
-        //     let pokemonData = pokemon.map((e) => {
-        //         return {
-        //             name: e.data.name,
-        //             image: e.data.sprites.other.official_artwork.front_default
-
-        //         }
-        //     })
-        //     res.send(pokemonData)
-        // }).catch((error) => {
-        //     console.log(error);
-        // })

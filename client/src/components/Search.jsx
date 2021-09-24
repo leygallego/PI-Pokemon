@@ -8,7 +8,7 @@ function Search() {
 
     const pk = useSelector(state => state.pokemones);
  const tipos = useSelector(state => state.types);
-    // console.log("store tipos",tipos);
+    console.log("store tipos",pk);
     
     const dispatch = useDispatch(); // verificar que esté importado de react redux si lo voy a usar
 
