@@ -86,7 +86,7 @@ async function getOnePokemon(req, res, next) {
 async function addPokemon(req, res, next) {
     try {
         const { name, hp, strenght, defense, speed, height, weight, image, types } = req.body;
-
+        console.log(types);
         const newPokemon = await Pokemons.create({ name, hp, strenght, defense, speed, height, weight, image });
         await newPokemon.addTypes(types); // para mas de un tipo "Promise.All"
 

@@ -69,13 +69,22 @@ if (!pagination) {
             <div className="container-pokemones">
                 {paginado.map((e, i)=>{
                 //  console.log(e);
+                // console.log(e.types);
                 return(
                     <div key={i} className="imagenes-card">
                         <NavLink exact to={`/detalle/${e.id}`}>
                             <img src={e.image} alt={`imagen ${e.name}`} />
                         </NavLink>
                         <h2>Nombre: {e.name}</h2>
-                        {/* <h3>Tipo: {e.types}</h3> */}
+                        if (typeof e.types === "object") {
+                             console.log([e.types])
+                        }else if(typeof e.types === "string"){
+                            console.log(e.types)
+
+                        }
+                        {/* typeof(e.types) === "object" ? console.log(e.types[0].name) : console.log(e.types) */}
+                        {/* {console.log(e.types)} */}
+                        {/* <h3>Tipo: {e.types.map(e =><div>{e.name}</div>)}</h3> */}
                         
                     </div>
                 )
