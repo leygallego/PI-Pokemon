@@ -104,28 +104,28 @@ function Crear() {
                 <div className="crear-form">
 
                     <form onSubmit={onSubmit}>
-                        <label htmlFor="">Nombre: </label>
+                        <label >Nombre: </label>
                         <input name="name" value={values.name} onChange={handleOnChange}
                             placeholder="Escribe el nombre de tu pokemon" />
-                        <label htmlFor="">Vida: </label>
+                        <label >Vida: </label>
                         <input name="hp" value={values.hp} onChange={handleOnChange} />
-                        <label htmlFor="">Fuerza: </label>
+                        <label >Fuerza: </label>
                         <input name="strenght" value={values.strenght} onChange={handleOnChange} />
-                        <label htmlFor="">Defensa: </label>
+                        <label >Defensa: </label>
                         <input name="defense" value={values.defense} onChange={handleOnChange} />
-                        <label htmlFor="">Velocidad: </label>
+                        <label >Velocidad: </label>
                         <input name="speed" value={values.speed} onChange={handleOnChange} />
-                        <label htmlFor="">Altura: </label>
+                        <label >Altura: </label>
                         <input name="height" value={values.height} onChange={handleOnChange} />
-                        <label htmlFor="">Peso: </label>
+                        <label >Peso: </label>
                         <input name="weight" value={values.weight} onChange={handleOnChange} />
-                        <label htmlFor="">Imagen: </label>
+                        <label >Imagen: </label>
                         <input name="image" value={values.image} onChange={handleOnChange} />
 
                         <h2>Seleccionar tipo</h2>
                         <select onChange={handleOnChangeSelect} name="types" multiple>
                             {
-                                tipos.length && tipos.map((e, i)=>{
+                                 tipos.map((e, i)=>{
                                     return <option value={e[0].id} key={i}>{e[0].name}</option>
                                 })
                             }
@@ -264,24 +264,24 @@ export default Crear
 //                 <div className="crear-form">
 
 //                 <form onSubmit={(e)=> {handleSubmit(e)}}>
-//                 <label htmlFor="">Nombre: </label>
+//                 <label >Nombre: </label>
 //                 <input name="name" value={crear.name} onChange={e => handleOnChange(e)}
 //                 placeholder="Escribe el nombre de tu pokemon" />
-//                 <label htmlFor="">Vida: </label>
+//                 <label >Vida: </label>
 //                 <input name="hp" value={crear.hp} onChange={e => handleOnChange(e)} />
-//                 <label htmlFor="">Fuerza: </label>
+//                 <label >Fuerza: </label>
 //                 <input name="strenght" value={crear.strenght} onChange={e => handleOnChange(e)} />
-//                 <label htmlFor="">Defensa: </label>
+//                 <label >Defensa: </label>
 //                 <input name="defense" value={crear.defense} onChange={e => handleOnChange(e)} />
-//                 <label htmlFor="">Velocidad: </label>
+//                 <label >Velocidad: </label>
 //                 <input name="speed" value={crear.speed} onChange={e => handleOnChange(e)} />
-//                 <label htmlFor="">Altura: </label>
+//                 <label >Altura: </label>
 //                 <input name="height" value={crear.height} onChange={e => handleOnChange(e)} />
-//                 <label htmlFor="">Peso: </label>
+//                 <label >Peso: </label>
 //                 <input name="weight" value={crear.weight} onChange={e => handleOnChange(e)} />
-//                 <label htmlFor="">Imagen: </label>
+//                 <label >Imagen: </label>
 //                 <input name="image" value={crear.image} onChange={e => handleOnChange(e)} />
-//                 {/* <label htmlFor="">Crear tipo nuevo: </label>
+//                 {/* <label >Crear tipo nuevo: </label>
 //                 <input name="newType"  onChange={e => handleOnChange(e)}/> */}
 //                 <h2>Seleccionar tipo</h2>
 
