@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 import React from 'react'
+// import Busqueda from './Busqueda';
 // import { useDispatch } from 'react-redux'
 // import { getAllTypes, getPkByName } from '../actions';
 
@@ -25,7 +26,10 @@ function NavBar() {
                 <NavLink exact to="/home">Home</NavLink>
                 {/* <Search />   */}
                 {/* <NameSearch /> */}
+                {/* <Busqueda /> */}
+                <NavLink exact to="/pokemon">Buscar Pokemon por Nombre</NavLink>
                 <NavLink exact to="/crear">Crear Pokemon </NavLink>
+            
                 {/* <input type="text" placeholder="Busca Pokemón" onChange={handleInput} value={input} />
                 <button onClick={buscar}>Buscar</button>  */}
 

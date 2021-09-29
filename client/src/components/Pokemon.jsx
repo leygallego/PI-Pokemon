@@ -4,7 +4,7 @@ import { getPokemones, setFilters } from '../actions';
 import './Pokemon.css';
 import { NavLink, useHistory } from 'react-router-dom';
 // import NameSearch from './NameSearch';
-import Busqueda from './Busqueda';
+// import Busqueda from './Busqueda';
 
 
 
@@ -176,7 +176,7 @@ if (!pagination) {
 
             {/* <NameSearch /> */}
 
-            <Busqueda />
+            {/* <Busqueda /> */}
             {/* <Resultado /> */}
 
             </div>

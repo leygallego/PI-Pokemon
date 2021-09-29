@@ -2,19 +2,32 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import fetchPokemon from '../actions/buscadorAction';
 import { useSelector } from 'react-redux';
+import  './Busqueda.css'
 
 
 function Busqueda() {
     const dispatch = useDispatch();
     const buscador = useSelector((state) => state.pokemon)
-    console.log(buscador);
-    let imagenPkBd = buscador.map(e => {
-        return e[0].image
+    console.log("nueva prueba", buscador);
+
+    let imagenPkApi;
+    let imagenPkBd;
+    try {
+        imagenPkApi = buscador.map(e => {
+        return e[0].sprites.front_default
     })
-    let nombrePkBd = buscador.map(e => {
-        return e[0].name
-    })
-    // console.log("Esta es la prueba",prueba);
+        
+    } catch (error) {
+         imagenPkBd = buscador.map(e => {
+            return  e[0].image
+        }) 
+    }
+
+   
+   
+    // console.log("Esta es la prueba",nombrePkBd);
+
+    
     const [pokemonName, setPokemonName] = useState('')
     
     const handleOnChange = (e) => {
@@ -44,8 +57,8 @@ function Busqueda() {
             { buscador.loading &&  <div className="resultado-warning">Buscando...</div>}
 
             { buscador.length >= 1 && <div className="resultado-mostrado">
-                <img src={imagenPkBd} alt={buscador[0].name} />
-                <span>{nombrePkBd}</span>
+                <img className="busqueda-imagen" src={imagenPkBd ? imagenPkBd : imagenPkApi} alt={buscador[0].name} />
+                <span>{buscador[0].name}</span>
             </div>}
                 { buscador.error !== '' && <span className="resultado-error">{buscador.error}</span>}
 
