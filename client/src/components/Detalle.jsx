@@ -21,11 +21,8 @@ function Detalle() {
 
     return (
         
-        
-        
         <div>
             {
-        
             pokedetalle.name?
                 <div>
                     <br />
@@ -38,9 +35,10 @@ function Detalle() {
                     <p>Velocidad: {pokedetalle.speed}</p>
                     <p>Peso: {pokedetalle.weight}</p>
                     <p>Altura: {pokedetalle.height}</p>
-                    <div> {typeof pokedetalle.types === "object" ? <h3>Tipo: {pokedetalle.types[0].name}</h3> : <h3>Tipo: {pokedetalle.types}</h3>}</div>
+                    <div> {typeof pokedetalle.types === "object" ? <div>Tipo: {pokedetalle.types.map((e, index)=>{
+                                                                                    return <h3 key={index}>{e.name}</h3>
+                                                                                })}</div> : <h3>Tipo: {pokedetalle.types}</h3>}</div>
 
-                    {/* <p>Tipo: {pokedetalle.types.name}</p> */}  
                     
 
                 </div> 
@@ -51,3 +49,5 @@ function Detalle() {
 }
 
 export default Detalle
+
+                                                    

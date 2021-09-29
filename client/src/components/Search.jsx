@@ -10,7 +10,7 @@ function Search() {
  const tipos = useSelector(state => state.types);
     // console.log("store tipos",pk);
     
-    const dispatch = useDispatch(); // verificar que esté importado de react redux si lo voy a usar
+    const dispatch = useDispatch(); 
 
     useEffect(()=>{
         dispatch(getAllTypes())

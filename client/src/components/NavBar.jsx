@@ -1,16 +1,33 @@
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
-import Search from './Search';
-
-
 import React from 'react'
+// import { useDispatch } from 'react-redux'
+// import { getAllTypes, getPkByName } from '../actions';
+
 
 function NavBar() {
+// const [input, setInput] = useState("")
+// const dispatch = useDispatch()
+
+// useEffect(()=>{
+//     dispatch(getAllTypes())
+// },[dispatch])
+
+// const handleInput = (event) =>{
+//     setInput(event.target.value)
+// }
+// const buscar = ()=>{
+//     dispatch(getPkByName(input))
+// }
+
     return (
         <div className="main-navbar">
                 <NavLink exact to="/home">Home</NavLink>
-                <Search />  
+                {/* <Search />   */}
+                {/* <NameSearch /> */}
                 <NavLink exact to="/crear">Crear Pokemon </NavLink>
+                {/* <input type="text" placeholder="Busca Pokemón" onChange={handleInput} value={input} />
+                <button onClick={buscar}>Buscar</button>  */}
 
 
 

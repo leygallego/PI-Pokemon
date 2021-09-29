@@ -1,12 +1,26 @@
-import { CREATE_POKEMON, GET_ALL_TYPES, GET_POKEMONES, GET_POKEMONES_BY_ID, QUIT_POKEMONES_BY_ID } from "../actions";
+import { 
+    CREAR_NUEVO_TIPO, 
+    CREATE_POKEMON, 
+    GET_ALL_TYPES, 
+    GET_PK_BY_NAME, 
+    GET_POKEMONES, 
+    GET_POKEMONES_BY_ID, 
+    QUIT_POKEMONES_BY_ID, 
+    SORT_POKEMONES, 
+    SET_FILTERS } from "../actions";
 
+import { FETCH_POKEMON_FAILURE, FETCH_POKEMON_REQUEST, FETCH_POKEMON_SUCCESS } from "../actions/buscadorAction"
 
 
 const initialState={
 
     pokemones: [],
-    pokemon:{},
-    types : []
+    types : [],
+    idName: {},
+    loading: false,
+    pokemon: [],
+    error: ''
+    
 }
 
 
@@ -37,6 +51,55 @@ export default function rootReducer(state = initialState, action){
                 ...state,
                 types: action.payload
             }           
+        case GET_PK_BY_NAME:
+            return{
+                ...state,
+                idName: action.payload
+            }
+        case CREAR_NUEVO_TIPO:
+            return{
+            }      
+        case SORT_POKEMONES:
+           let sorted = state.pokemones.sort(function(a,b){
+               if(action.payload==="asc") return a.name.localeCompare(b.name);
+               else return b.name.localeCompare(a.name)
+           })       
+           return {
+               ...state,
+               pokemones: sorted
+           }
+           case SET_FILTERS:
+            return {
+                ...state, 
+                pokemones: action.payload
+            }      
+
+            case FETCH_POKEMON_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case FETCH_POKEMON_SUCCESS:
+            return {
+                loading: false,
+                pokemon: action.payload,
+                error: ''
+            }    
+        case FETCH_POKEMON_FAILURE:
+            return {
+                loading: false,
+                pokemon: [],
+                error: action.payload
+            }   
+
+           
+
+        //    case FILTER_POKEMONES:
+        //    let filter = state.pokemones.filter()       
+        //    return {
+        //        ...state,
+        //        pokemones: sorted
+        //    }
         default: return state
     }
 }
