@@ -12,6 +12,7 @@ function Busqueda() {
 
     let imagenPkApi;
     let imagenPkBd;
+    let nombrePk;
     try {
         imagenPkApi = buscador.map(e => {
         return e[0].sprites.front_default
@@ -21,6 +22,13 @@ function Busqueda() {
          imagenPkBd = buscador.map(e => {
             return  e[0].image
         }) 
+    }
+    try {
+        nombrePk = buscador.map(e => {
+            return  e[0].name
+        }) 
+    } catch (error) {
+        
     }
 
    
@@ -53,13 +61,19 @@ function Busqueda() {
                 {/* prueba de resultados */}
 
                 <div className="main-resultado">
-            <h3 className="resultado-titulo">Resultado</h3>
+            {/* <h3 className="resultado-titulo">Resultado</h3> */}
             { buscador.loading &&  <div className="resultado-warning">Buscando...</div>}
 
             { buscador.length >= 1 && <div className="resultado-mostrado">
                 <img className="busqueda-imagen" src={imagenPkBd ? imagenPkBd : imagenPkApi} alt={buscador[0].name} />
-                <span>{buscador[0].name}</span>
             </div>}
+            <div>
+            { buscador.length >= 1 && <div className="resultado-mostrado">
+                <h1>{nombrePk}</h1>
+            </div>}
+            </div>
+            
+
                 { buscador.error !== '' && <span className="resultado-error">{buscador.error}</span>}
 
         </div>
