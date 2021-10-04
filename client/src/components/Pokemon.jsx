@@ -9,37 +9,32 @@ import { NavLink, useHistory } from 'react-router-dom';
 
 
 function Pokemon() {
+const pokApi = useSelector(state => {
+     return state.pkApi
+    })
+const pokDB = useSelector(state => {
+    return state.pkDB
+})
 const selector = useSelector(state =>{
     return state.pokemones;
 })
 
-const pokApi = useSelector(state => state.pkApi)
-const pokDB = useSelector(state => state.pkDB)
+
 console.log("pkapi", pokApi);
 console.log("pkDB", pokDB);
+console.log("allPokemones", selector);
+
 
 
 const dispatch = useDispatch();
 const history =  useHistory();
-// let existentes = [];
-// let creados = [];
-// let ascendentes = [];
-// let descendentes = [];
-// let fuerza = [];
+
 
 useEffect(()=>{
     dispatch(getPokemones())
     
 }, [dispatch])
 
-// useEffect(()=>{
-//     dispatch(getPkApi())
-    
-// }, [dispatch])
-// useEffect(()=>{
-//     dispatch(getPkDB())
-    
-// }, [dispatch])
 
 
 const limite = 9;
@@ -47,15 +42,11 @@ const [page, setPage] = useState(0);
 const [limit, setLimit] = useState(limite);
 const [paginado, setPaginado] = useState([]);
 
-
 const pagination = () => {
     setPaginado(
         selector.slice(page, limit)
     )
 }
-
-
-
 
 
 const handleBackwards = () => {
@@ -139,22 +130,18 @@ if (!pagination) {
             // Filtrar por Pokemones Existentes    
             case "4":
                
-
                 dispatch(setFilters(pokApi))
                 setPaginado(
                     pokApi.slice(0, 3)
                 )
-              
                 break;
             // Filtrar por Pokemones Creados
             case "5":
                
-
                 dispatch(setFilters(pokDB))
                 setPaginado(
                     pokDB.slice(0, 3)
                 )
-               
                 break;
             // Todos lo Pokemones
             case 6:
