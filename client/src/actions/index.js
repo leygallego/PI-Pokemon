@@ -10,6 +10,8 @@ export const CREAR_NUEVO_TIPO = 'CREAR_NUEVO_TIPO';
 export const SORT_POKEMONES = 'SORT_POKEMONES';
 export const ADD_FILTERED_POKEMON = 'ADD_FILTERED_POKEMON';
 export const SET_FILTERS = 'SET_FILTERS';
+export const GET_PK_API = 'GET_PK_API';
+export const GET_PK_DB = 'GET_PK_DB'
 
 //Para botón de búsqueda
 // export const FETCH_POKEMON_REQUEST = 'FETCH_POKEMON_REQUEST';
@@ -116,6 +118,26 @@ export const setFilters = (payload) => {
     return {
         type: SET_FILTERS,
         payload: payload
+    }
+}
+
+export const getPkApi = (payload) => {
+    return async dispatch => {
+        return  await axios.get("http://localhost:3001/pokemons/api", payload)
+        .then(response => dispatch({
+            type: GET_PK_API,
+            payload: response.data
+        }))
+    }
+}
+
+export const getPkDB = (payload) => {
+    return async dispatch => {
+        return  await axios.get("http://localhost:3001/pokemons/database", payload)
+        .then(response => dispatch({
+            type: GET_PK_DB,
+            payload: response.data
+        }))
     }
 }
 

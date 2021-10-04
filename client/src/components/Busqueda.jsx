@@ -48,15 +48,21 @@ function Busqueda() {
 
     return (
         <div className="main-busqueda">
+            <br />
+            <br />
             <label htmlFor="buscar_pokemon" className="busqueda-label">Buscar Pokemon</label>
             <input 
+            placeholder="Ingresa el nombre del Pokemon"
             type="text" 
             className="busqueda-input" 
             id="buscar_pokemon" 
             value={pokemonName}
             onChange={handleOnChange}
              />
-            <button className="busqueda-button" onClick={handleOnClick} >Enviar</button>
+             <div className="container-busquedaButton">
+             <button className="busqueda-button" onClick={handleOnClick} >Enviar</button>
+             </div>
+            
 
                 {/* prueba de resultados */}
 

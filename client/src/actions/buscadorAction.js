@@ -35,7 +35,7 @@ export const fetchPokemonFailure = (error) => {
             dispatch(fetchPokemonSuccess([response.data]));
         })
         .catch(error => {
-            dispatch(fetchPokemonFailure("No se encontró el pokemón"))
+            dispatch(fetchPokemonFailure("No se encontró el pokemón", error))
         })
 
     }

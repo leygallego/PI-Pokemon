@@ -38,5 +38,16 @@
 }
 
 body{
-  background-color: blue;
+  /* background-color: blue; */
+  /* background-image: url('./images/pokebackground.jpeg') ; 
+  background-size: 100%;  */
+  background:url('./images/pokebackground.jpeg')no-repeat center center fixed ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+
+
+
 }

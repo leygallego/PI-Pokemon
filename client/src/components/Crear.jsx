@@ -105,7 +105,7 @@ function Crear() {
 
                     <form onSubmit={onSubmit}>
                         <label >Nombre: </label>
-                        <input name="name" value={values.name} onChange={handleOnChange}
+                        <input className="crear-inputNombre" name="name" value={values.name} onChange={handleOnChange}
                             placeholder="Escribe el nombre de tu pokemon" />
                         <label >Vida: </label>
                         <input name="hp" value={values.hp} onChange={handleOnChange} />
@@ -122,7 +122,8 @@ function Crear() {
                         <label >Imagen: </label>
                         <input name="image" value={values.image} onChange={handleOnChange} />
 
-                        <h2>Seleccionar tipo</h2>
+                        <h2 className="crear-seleccionTitulo">Seleccionar tipo</h2>
+                        <div className="select-crear">
                         <select onChange={handleOnChangeSelect} name="types" multiple>
                             {
                                  tipos.map((e, i)=>{
@@ -130,6 +131,8 @@ function Crear() {
                                 })
                             }
                         </select>
+                        </div>
+                       
                         {/* <div className="select-crear">
 
                             <select name="types" onChange={handleOnChangeSelect} multiple>

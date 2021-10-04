@@ -1,13 +1,6 @@
 
 
 .main-card {
-    /* display: grid;
-    grid-template-rows: 100px 100px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    background-color: white;
-    color: black; */
     margin-top: 50px;
   }
 
@@ -19,11 +12,21 @@
   .back{
     background-color: yellow;
     margin-bottom: 15px;
+    width: 100px;
+    height: 25px;
+    margin-bottom: 2%;
+    font-size: 28;
   }
 
     .forward{
     background-color: blue;
     margin-bottom: 15px;
+    width: 100px;
+    height: 25px;
+    margin-bottom: 2%;
+    font-size: 28;
+
+
 
   }
 
@@ -40,6 +43,50 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    background-color: white;
+    background-color: transparent;
     color: black;
+    font-size: 18px;
+    font-family: Comic Sans MS;
+  }
+
+  .container-pokemones > div {
+    /* background-color: black; */
+    background-color: rgba(255,255,255,0.5);
+    /* opacity: 50%; */
+  }
+
+  
+  .navButton {
+    height: 30px;
+    width: 100px;
+  }
+
+  .button-pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: transparent;
+    height: 30px;
+  }
+
+  .selector {
+    font-size: 20px;
+    height: 30px;
+  }
+
+  .container-selectPokemonCard select {
+    /* appearance: none; */
+    background-color: transparent;
+    border: 2px solid #e7e7e7;
+    border-radius: 5px;
+    padding: 0 1em 0 0;
+    margin-top: 3%;
+    width: 20%;
+    height: 35px;
+    font-family: Comic Sans MS;
+    font-size: 20px;
+    cursor: inherit;
+    line-height: inherit;
+    color: white;
+    font-weight: bold;
   }

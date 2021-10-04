@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPokemones, setFilters } from '../actions';
 import './Pokemon.css';
 import { NavLink, useHistory } from 'react-router-dom';
-// import NameSearch from './NameSearch';
-// import Busqueda from './Busqueda';
+
 
 
 
@@ -14,19 +13,33 @@ const selector = useSelector(state =>{
     return state.pokemones;
 })
 
+const pokApi = useSelector(state => state.pkApi)
+const pokDB = useSelector(state => state.pkDB)
+console.log("pkapi", pokApi);
+console.log("pkDB", pokDB);
+
+
 const dispatch = useDispatch();
 const history =  useHistory();
-let existentes = [];
-let creados = [];
+// let existentes = [];
+// let creados = [];
 // let ascendentes = [];
 // let descendentes = [];
 // let fuerza = [];
 
 useEffect(()=>{
     dispatch(getPokemones())
+    
 }, [dispatch])
 
-
+// useEffect(()=>{
+//     dispatch(getPkApi())
+    
+// }, [dispatch])
+// useEffect(()=>{
+//     dispatch(getPkDB())
+    
+// }, [dispatch])
 
 
 const limite = 9;
@@ -39,14 +52,9 @@ const pagination = () => {
     setPaginado(
         selector.slice(page, limit)
     )
-    // console.log(paginado);
 }
 
-// function handleChange(e) {
-//     if(e.target.value === "default") dispatch(getPokemones())
-//     else dispatch(sortPokemones(e.target.value))
-//     history.push("/home")
-// }
+
 
 
 
@@ -59,7 +67,6 @@ const handleBackwards = () => {
             setLimit(limite);
             }
         pagination();
-    // console.log(page, limit)
 }
 
 const handleForewards = () => {
@@ -131,30 +138,23 @@ if (!pagination) {
                 break;
             // Filtrar por Pokemones Existentes    
             case "4":
-                dispatch(getPokemones())
-                selector.forEach(element => {
-                    if (typeof element.id === 'string') {
-                        existentes.push(element);
-                    } else {
-                        creados.push(element);
-                    }
-                });
-                console.log("Creados:", existentes);
-                dispatch(setFilters(existentes))
+               
+
+                dispatch(setFilters(pokApi))
+                setPaginado(
+                    pokApi.slice(0, 3)
+                )
+              
                 break;
             // Filtrar por Pokemones Creados
             case "5":
-                dispatch(getPokemones())
-                selector.forEach(element => {
-                    if (typeof element.id === 'string') {
-                        existentes.push(element);
-                    } else {
-                        creados.push(element);
-                    }
-                });
-                console.log("Existentes:", creados);
-                dispatch(setFilters(creados))
-                history.push('/home');
+               
+
+                dispatch(setFilters(pokDB))
+                setPaginado(
+                    pokDB.slice(0, 3)
+                )
+               
                 break;
             // Todos lo Pokemones
             case 6:
@@ -172,17 +172,12 @@ if (!pagination) {
 
     return (
         <div className="main-card">
-            <div>
+           
+          
 
-            {/* <NameSearch /> */}
-
-            {/* <Busqueda /> */}
-            {/* <Resultado /> */}
-
-            </div>
-            <br />
-            <select onChange={e => { handleFilterChange(e) }}>
-                <option value={-1}>Selecciòn de Filtros</option>
+            <div className="container-selectPokemonCard">
+            <select className="select-pokemonCard" onChange={e => { handleFilterChange(e) }}>
+                <option value={-1}>Selección de Filtros</option>
                 <option value={1} >Ordenar Ascendente</option>
                 <option value={2} >Ordenar Descendente</option>
                 <option value={3} >Filtrar por Fuerza</option>
@@ -190,6 +185,8 @@ if (!pagination) {
                 <option value={5} >Nuevo Pokemones Creados</option>
                 <option value={6} >Todos los Pokemones</option>
             </select>
+            </div>
+           
             <br />
      
             <div className="button-pagination">

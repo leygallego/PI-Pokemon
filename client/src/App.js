@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import Detalle from './components/Detalle';
 import Crear from './components/Crear';
 import Busqueda from './components/Busqueda';
+import Filtrado from './components/Filtrado';
 // import NameSearch from './components/NameSearch';
 
 
@@ -20,6 +21,9 @@ function App() {
         {/* <Route exact path="/name/:name" render={({ match }) => <NameSearch id={match.params.name}/>} ></Route> */}
         <Route exact path="/crear" component={Crear}></Route>
         <Route exact path="/pokemon" component={Busqueda}></Route>
+        <Route exact path="/filtrado" component={Filtrado}></Route>
+
+
 
         
       </Router>

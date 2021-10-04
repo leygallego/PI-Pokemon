@@ -33,8 +33,6 @@ function NavBar() {
                 {/* <input type="text" placeholder="Busca Pokemón" onChange={handleInput} value={input} />
                 <button onClick={buscar}>Buscar</button>  */}
 
-
-
         </div>
     )
 }

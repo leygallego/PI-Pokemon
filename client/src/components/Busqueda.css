@@ -5,3 +5,54 @@
     width: 300px;
     height: 300px;
 }
+
+.busqueda-input{
+    font-family: Arial, Helvetica, sans-serif;
+	background: rgba(255, 255, 255, 0.44);
+	color: #333;
+	border: 1px solid #A4A4A4;
+    border-radius: 5px;
+	padding: 4px 8px 4px 4px !important;
+	line-height: 1;
+	width: 375px;
+	height:35px;
+    font-family: Comic Sans MS;
+    font-size: 20px;
+}
+
+.busqueda-label{
+    font-family: Comic Sans MS;
+    font-size: 28px;
+}
+
+.busqueda-button {
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	background-color:#33bdef;
+	border-radius:6px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+    margin-left: 12%;
+    width: 150px;
+}
+
+.busqueda-button:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
+}
+.busqueda-button:active {
+	position:relative;
+	top:1px;
+}
+
+.container-busquedaButton{
+    margin-top: 2%;
+}

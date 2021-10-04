@@ -2,17 +2,26 @@
 .logo {
     text-align: center;
     font-size: 3em;
+	font-family: Comic Sans MS;
+
 }
 
 .logo span {
     color: #B70E21;
+	font-family: Comic Sans MS;
+    font-size: 1em;
 }
 
+
+.crear-form{
+	margin-left: 35%;
+}
 .crear-form form {
     display: grid;
-    grid-template-columns: 25% 25%;
+    grid-template-columns: 25% 70%;
     grid-gap: 5px;
-	background-color: #15172b;
+	background-color: #15172b83;
+	/* opacity: 50%; */
 	border-radius: 20px;
 	box-sizing: border-box;
 	height: 500px;
@@ -30,7 +39,7 @@
 	box-shadow: 0 0 8px -3px #888; */
 }
 .crear-form input{
-	background-color: #303245;
+	background-color: rgba(0, 0, 0, 0.383);
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
@@ -43,6 +52,9 @@
 }
 .crear-form label {
     display: block;
+	font-family: Comic Sans MS;
+	font-size: 20px;
+	width: 50%;
 }
 
 .select-crear{
@@ -50,9 +62,24 @@
 	grid-template-rows: auto;
 	width: 100%;
 	height: 100%;
+	/* color: yellow;
+	background-color: yellow; */
 }
 .select-crear select{
-	color: black;
+	background-color: transparent;
+    border: 2px solid #e7e7e7;
+    border-radius: 5px;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    height: 55px;
+    font-family: Comic Sans MS;
+    font-size: 20px;
+    cursor: inherit;
+    line-height: inherit;
+    color: white;
+    font-weight: bold;
+	text-align: center;
 }
 /* .crear-form form :hover {
 	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAFElEQVQImWNggIKysjIpHAwGBgYAWJsEdbVd/aEAAAAASUVORK5CYII=);
@@ -93,9 +120,9 @@
 	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
-    width: 100px;
+    width: 300px;
     height: 35px;
-    margin-left: 40%;
+    margin-left: 110%;
 }
 .myButton-crear:hover {
 	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
@@ -104,4 +131,14 @@
 .myButton-crear:active {
 	position:relative;
 	top:1px;
+}
+
+.crear-inputNombre{
+	width: 200px;
+}
+
+.crear-seleccionTitulo{
+	font-family: Comic Sans MS;
+	font-size: 20px;
+	width: 50%;
 }

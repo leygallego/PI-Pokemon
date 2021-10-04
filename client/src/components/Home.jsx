@@ -6,8 +6,6 @@ import './Home.css'
 function Home() {
     return (
         <div>
-            <br />
-            <h1>POKEMÓN</h1>
                 <div className="main-home">
 
                     {/* <div className="area-busqueda">

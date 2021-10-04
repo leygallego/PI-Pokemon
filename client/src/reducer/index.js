@@ -7,7 +7,10 @@ import {
     GET_POKEMONES_BY_ID, 
     QUIT_POKEMONES_BY_ID, 
     SORT_POKEMONES, 
-    SET_FILTERS } from "../actions";
+    SET_FILTERS, 
+    GET_PK_API,
+    GET_PK_DB
+} from "../actions";
 
 import { FETCH_POKEMON_FAILURE, FETCH_POKEMON_REQUEST, FETCH_POKEMON_SUCCESS } from "../actions/buscadorAction"
 
@@ -19,7 +22,9 @@ const initialState={
     idName: {},
     loading: false,
     pokemon: [],
-    error: ''
+    error: '',
+    pkApi: [],
+    pkDB: []
     
 }
 
@@ -93,6 +98,17 @@ export default function rootReducer(state = initialState, action){
                 pokemon: [],
                 error: action.payload
             }   
+
+        case GET_PK_API:
+            return{
+                ...state,
+                pkApi: action.payload
+            } 
+        case GET_PK_DB:
+            return {
+                ...state,
+                pkDB: action.payload
+            }       
 
            
 
