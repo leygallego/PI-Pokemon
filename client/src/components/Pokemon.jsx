@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPokemones, setFilters } from '../actions';
+import { getPkApi, getPkDB, getPokemones, setFilters } from '../actions';
 import './Pokemon.css';
 import { NavLink, useHistory } from 'react-router-dom';
 
@@ -32,9 +32,13 @@ const history =  useHistory();
 
 useEffect(()=>{
     dispatch(getPokemones())
-    
 }, [dispatch])
-
+useEffect(()=>{
+    dispatch(getPkApi())
+}, [dispatch])
+useEffect(()=>{
+    dispatch(getPkDB())
+}, [dispatch])
 
 
 const limite = 9;
@@ -132,7 +136,7 @@ if (!pagination) {
                
                 dispatch(setFilters(pokApi))
                 setPaginado(
-                    pokApi.slice(0, 3)
+                    pokApi.slice(0, 9)
                 )
                 break;
             // Filtrar por Pokemones Creados
@@ -140,12 +144,16 @@ if (!pagination) {
                
                 dispatch(setFilters(pokDB))
                 setPaginado(
-                    pokDB.slice(0, 3)
+                    pokDB.slice(0, 9)
                 )
                 break;
             // Todos lo Pokemones
             case 6:
-                dispatch(getPokemones())
+                // dispatch(getPokemones())
+                // setPaginado(
+                //     selector.slice(0, 9)
+                // )
+                dispatch(setFilters(getPokemones()))
                 setPaginado(
                     selector.slice(0, 9)
                 )
